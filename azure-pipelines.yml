@@ -32,4 +32,11 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 - task: PublishBuildArtifacts@1
-
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Ochoa'
+    appType: 'webApp'
+    WebAppName: 'LuisROchoaT'
+    packageForLinux: 'D:\a\1\a\**\*.zip'
+    #packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
